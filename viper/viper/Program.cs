@@ -32,7 +32,7 @@ namespace viper
 
             numList.RemoveAt(0);
 
-            List<Point> pList = mew List<Point>();
+            List<Point> pList = new List<Point>();
             pList.Add(p1);
             pList.Add(p2);
 
