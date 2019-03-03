@@ -10,21 +10,21 @@ namespace viper
     {
         static void Main(string[] args)
         {
-            Console.SetBufferSize(80, 25);
+            Console.SetBufferSize( 80, 25 );
 
-            Walls walls = new Walls(80, 25);
+            Walls walls = new Walls( 80, 25 );
             walls.Draw();
 
             //VerticalLine v1 = new VerticalLine(0, 10, 5, '%');
             //Draw( v1 );
 
-            Point p = new Point(4, 5, '*');
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            Point p = new Point( 4, 5, '*' );
+            Snake snake = new Snake( p, 4, Direction.RIGHT );
             snake.Draw();
             //Draw( fSnake );
             //Snake snake = (Snake) fSnake; //явное приведение типа
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+            FoodCreator foodCreator = new FoodCreator( 80, 25, '$' );
             Point food = foodCreator.CreateFood();
             food.Draw();
 
