@@ -22,12 +22,12 @@ namespace viper
             }
         }
 
-        internal void Move()
+        public void Move()
         {
             Point tail = pList.First(); //Возврат первого элемента списка
             pList.Remove(tail);
             Point head = GetNextPoint();
-            pList.Add(head);
+            pList.Add( head );
 
             tail.Clear();
             head.Draw();
@@ -41,22 +41,33 @@ namespace viper
             return nextPoint;
         }
 
+        public bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[ i ]))
+                    return true;
+            }
+            return false;
+        }
+
         public void HandleKey(ConsoleKey key )
         {
             if (key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;
-            if (key == ConsoleKey.RightArrow)
+            else if (key == ConsoleKey.RightArrow)
                 direction = Direction.RIGHT;
-            if (key == ConsoleKey.DownArrow)
+            else if (key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
-            if (key == ConsoleKey.UpArrow)
+            else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
         }
 
         internal bool Eat( Point food )
         {
             Point head = GetNextPoint();
-            if (head.IsHit(food))
+            if (head.IsHit( food ))
             {
                 food.sym = head.sym;
                 pList.Add( food);
